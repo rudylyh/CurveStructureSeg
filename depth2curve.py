@@ -2,7 +2,7 @@ import cv2
 import caffe
 import numpy
 from skimage.morphology import skeletonize
-caffe.set_mode_cpu()
+caffe.set_mode_gpu()
 
 def Normalize(image):
     min_val = min(map(min, image))
