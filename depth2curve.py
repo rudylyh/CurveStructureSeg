@@ -1,6 +1,8 @@
 import cv2
+import caffe
 import numpy
 from skimage.morphology import skeletonize
+caffe.set_mode_cpu()
 
 def Normalize(image):
     min_val = min(map(min, image))
@@ -88,7 +90,9 @@ def skel2curve(depth_img, mask_img, skel_img):
     curve_img[mask_img == 0] = 0
     return curve_img
 
-def main(depth_img, mask_img, cen_net, pcn_net):
+def main(depth_img, mask_img):
+    cen_net = caffe.Net('./model/cen_deploy.prototxt','./model/cen_iter_27000.caffemodel', caffe.TEST)
+    pcn_net = caffe.Net('./model/pcn_deploy.prototxt','./model/pcn_iter_50000.caffemodel', caffe.TEST)
     hm_img = depth2hm(depth_img, cen_net)
     raw_skel_img = hm2skel(hm_img)
     skel_img = RefineSkel(hm_img, raw_skel_img, pcn_net)
