@@ -12,3 +12,6 @@ AAAI Conference on Artificial Intelligence (AAAI), 2018.
 - Python -> skimage
 
 ### Description:
+
+Use "depth2curve.py img_name" to segment curve structures from depth images.  
+Example images are given in the data folder.
