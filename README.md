@@ -13,5 +13,5 @@ AAAI Conference on Artificial Intelligence (AAAI), 2018.
 
 ### Description:
 
-Use "depth2curve.py img_name" to segment curve structures from depth images.  
+Use "python depth2curve.py img_name" to segment curve structures from depth images.  
 Example images are included in the data folder.
